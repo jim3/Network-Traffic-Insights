@@ -13,7 +13,7 @@ class PacketAnalyzer {
 
     async readData() {
         try {
-            const jsonstr = await fs.readFile("wireshark-lg.json", "utf8");
+            const jsonstr = await fs.readFile("wireshark.json", "utf8");
             const obj = await JSON.parse(jsonstr);
             this.data = obj;
         } catch (err) {
