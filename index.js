@@ -18,8 +18,6 @@ class PacketAnalyzer {
         return this.data;
     }
 
-    // ----------------------------------------------------- //
-
     async httpLocations() {
         const filteredSets = this.data.filter(
             (set) =>
@@ -48,8 +46,6 @@ class PacketAnalyzer {
         console.log("HTTP Location:");
         console.log(httpLocation);
     }
-
-    // ----------------------------------------------------- //
 
     async ipAddr() {
         const filteredSets = this.data.filter(
@@ -100,8 +96,6 @@ class PacketAnalyzer {
         console.log(ipDetails);
     }
 
-    // ----------------------------------------------------- //
-
     async macAddr() {
         const filteredSets = this.data.filter(
             (set) =>
@@ -132,26 +126,24 @@ class PacketAnalyzer {
     }
 }
 
-// ----------------------------------------------------- //
-
 // main function
 const main = async () => {
     // create a new instance of PacketAnalyzer
     const packetAnalyzer = new PacketAnalyzer();
 
-    // `readData` from the JSON file and print out the data
+    // `readData` from the JSON file and print
     const data = await packetAnalyzer.readData("wireshark.json");
     console.dir(data, { depth: null });
 
-    // get `httpLocations` and print out the data
+    // get `httpLocations` and print
     const httpLocations = await packetAnalyzer.httpLocations();
     console.dir(httpLocations, { depth: null });
 
-    // get the `ipAddr` and print out the data
+    // get the `ipAddr` and print
     const ipAddr = await packetAnalyzer.ipAddr();
     console.dir(ipAddr, { depth: null });
 
-    // get the `macAddr` and print out the data
+    // get the `macAddr` and print
     const macAddr = await packetAnalyzer.macAddr();
     console.dir(macAddr, { depth: null });
 
