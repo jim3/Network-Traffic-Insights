@@ -2,8 +2,6 @@ const fs = require("fs/promises");
 const dotenv = require("dotenv");
 dotenv.config();
 
-// ----------------------------------------------------- //
-
 class PacketAnalyzer {
     constructor() {
         this.data = this.data;
