@@ -2,12 +2,12 @@ const fs = require("fs/promises");
 const dotenv = require("dotenv");
 dotenv.config();
 
+// ----------------------------------------------------- //
+
 class PacketAnalyzer {
     constructor() {
         this.data = this.data;
     }
-
-    // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= //
 
     async readData() {
         try {
@@ -20,7 +20,7 @@ class PacketAnalyzer {
         return this.data;
     }
 
-    // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= //
+    // ----------------------------------------------------- //
 
     async httpLocations() {
         const filteredSets = this.data.filter(
@@ -51,7 +51,7 @@ class PacketAnalyzer {
         console.log(httpLocation);
     }
 
-    // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= //
+    // ----------------------------------------------------- //
 
     async ipAddr() {
         const filteredSets = this.data.filter(
@@ -102,7 +102,7 @@ class PacketAnalyzer {
         console.log(ipDetails);
     }
 
-    // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= //
+    // ----------------------------------------------------- //
 
     async macAddr() {
         const filteredSets = this.data.filter(
@@ -134,26 +134,26 @@ class PacketAnalyzer {
     }
 }
 
-// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= //
+// ----------------------------------------------------- //
 
 // main function
 const main = async () => {
     // create a new instance of PacketAnalyzer
     const packetAnalyzer = new PacketAnalyzer();
 
-    // read the data from the JSON file and print out the data
+    // `readData` from the JSON file and print out the data
     const data = await packetAnalyzer.readData("wireshark.json");
     console.dir(data, { depth: null });
 
-    // get the HTTP server and location and print out the data
+    // get `httpLocations` and print out the data
     const httpLocations = await packetAnalyzer.httpLocations();
     console.dir(httpLocations, { depth: null });
 
-    // get the IP addresses and print out the data
+    // get the `ipAddr` and print out the data
     const ipAddr = await packetAnalyzer.ipAddr();
     console.dir(ipAddr, { depth: null });
 
-    // get the MAC addresses and print out the data
+    // get the `macAddr` and print out the data
     const macAddr = await packetAnalyzer.macAddr();
     console.dir(macAddr, { depth: null });
 
